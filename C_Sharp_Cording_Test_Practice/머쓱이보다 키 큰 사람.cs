@@ -9,30 +9,28 @@ namespace C_Sharp_Cording_Test_Practice
     /*
     public class Solution
     {
-        public int solution(int[] array, int n)
+        public int solution(int[] array, int height)
         {
             int answer = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] == n)
-                {
+                if (array[i] > height)
                     answer++;
-                }
             }
             return answer;
         }
     }
-    class 중복된_숫자_개수
+    class 머쓱이보다_키_큰_사람
     {
         static void Main(string[] args)
         {
             Solution _solution = new Solution();
 
-            int[] _array = { 1, 1, 2, 3, 4, 5 };
+            int[] _array = { 149, 180, 192, 170 };
 
-            Console.WriteLine(_array[0] + " " + _solution.solution(_array, 1));
-
+            Console.WriteLine("height : 167" + " " + _solution.solution(_array ,167));
         }
     }
     */
 }
+

@@ -9,29 +9,28 @@ namespace C_Sharp_Cording_Test_Practice
     /*
     public class Solution
     {
-        public int solution(int[] array, int n)
+        public int solution(int n)
         {
             int answer = 0;
-            for (int i = 0; i < array.Length; i++)
+            while(n > 0)
             {
-                if (array[i] == n)
-                {
-                    answer++;
-                }
+                answer += n % 10;
+                n /= 10;
             }
             return answer;
         }
     }
-    class 중복된_숫자_개수
+    class 자릿수_더하기
     {
         static void Main(string[] args)
         {
             Solution _solution = new Solution();
 
-            int[] _array = { 1, 1, 2, 3, 4, 5 };
+            int _n1 = 1234;
+            int _n2 = 930211;
 
-            Console.WriteLine(_array[0] + " " + _solution.solution(_array, 1));
-
+            Console.WriteLine(_solution.solution(_n1));
+            Console.WriteLine(_solution.solution(_n2));
         }
     }
     */
