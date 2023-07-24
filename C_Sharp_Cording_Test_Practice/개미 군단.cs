@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int hp)
@@ -40,4 +41,5 @@ namespace C_Sharp_Cording_Test_Practice
             }
         }
     }
+    */
 }
