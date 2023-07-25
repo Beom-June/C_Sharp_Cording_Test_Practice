@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(string my_string)
@@ -35,4 +36,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_my_string2));
         }
     }
+    */
 }
