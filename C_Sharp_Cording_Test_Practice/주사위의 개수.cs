@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
+/* 복습
  * 머쓱이는 직육면체 모양의 상자를 하나 가지고 있는데 
  * 이 상자에 정육면체 모양의 주사위를 최대한 많이 채우고 싶습니다.
  * 상자의 가로, 세로, 높이가 저장되어있는 배열 box와 
