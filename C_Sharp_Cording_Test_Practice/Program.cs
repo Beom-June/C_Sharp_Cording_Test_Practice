@@ -3,27 +3,25 @@
 
 //namespace C_Sharp_Cording_Test_Practice
 //{
-//    public class Solution
-//    {
-//        public int[] solution(int money)
-//        {
-//            int[] answer = new int[] { };
-//            return answer;
-//        }
-//    }
 //    class Program
 //    {
 //        static void Main(string[] args)
 //        {
-//            Solution solution = new Solution();
+//            String[] s;
 
-//            // 예시 입력
-//            int n1 = 5500;
-//            int n2 = 15000;
+//            Console.Clear();
+//            s = Console.ReadLine().Split(' ');
 
-//            // 결과 출력
-//            Console.WriteLine(solution.solution(n1));
-//            Console.WriteLine(solution.solution(n2));
+//            int a = Int32.Parse(s[0]);
+
+//            if (a % 2 == 0)
+//            {
+//                Console.WriteLine(a + " is even");
+//            }
+//            else
+//            {
+//                Console.WriteLine(a + " is odd");
+//            }
 //        }
 //    }
 //}
