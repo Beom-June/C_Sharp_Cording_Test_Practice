@@ -9,11 +9,18 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public string solution(string my_string, int n)
         {
             string answer = "";
+
+            for (int i = 0; i < n; i++)
+            {
+                answer += my_string[i];
+            }
+
             return answer;
         }
     }
@@ -33,4 +40,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_my_string2, _n2));
         }
     }
+    */
 }
