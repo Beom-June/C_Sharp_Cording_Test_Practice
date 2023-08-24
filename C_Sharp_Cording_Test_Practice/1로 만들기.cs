@@ -19,6 +19,7 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int[] num_list)
@@ -52,4 +53,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_num_list));
         }
     }
+    */
 }
