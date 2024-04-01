@@ -18,10 +18,12 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int[] solution(int[] array, int[,] commands)
         {
+            //  GetLongLength(0) : 행의 개수, GetLongLength(1) : 열의 개수
             int[] answer = new int[commands.GetLongLength(0)];
 
             //  i, j 까지 배열 추출
@@ -58,4 +60,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(string.Join(", ", _solution.solution(_array, _commands)));       //  5, 6, 3
         }
     }
+    */
 }
