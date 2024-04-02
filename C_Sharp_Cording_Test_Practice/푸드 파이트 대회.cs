@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* 수웅이는 매달 주어진 음식을 빨리 먹는 푸드 파이트 대회를 개최합니다. 
+/* Retry
+ * 수웅이는 매달 주어진 음식을 빨리 먹는 푸드 파이트 대회를 개최합니다. 
  * 이 대회에서 선수들은 1대 1로 대결하며, 매 대결마다 음식의 종류와 양이 바뀝니다. 
  * 대결은 준비된 음식들을 일렬로 배치한 뒤, 한 선수는 제일 왼쪽에 있는 음식부터 오른쪽으로, 
  * 다른 선수는 제일 오른쪽에 있는 음식부터 왼쪽으로 순서대로 먹는 방식으로 진행됩니다. 
@@ -26,12 +27,27 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public string solution(int[] food)
         {
             string answer = "";
-            return answer;
+
+            //  i = 0 은 물
+            for (int i = 1; i < food.Length; i++)
+            {
+                //  반 나눔
+                int _count = food[i] / 2;
+
+                for (int j = 0; j < _count; j++)
+                {
+                    answer += i;
+                }
+            }
+            //  0 : 중아에 배치되는 물.
+            //  new string(answer.Reverse().ToArray()) : 문자열을 뒤집은 후, 다시 문자열로 만듦
+            return answer + "0" + new string(answer.Reverse().ToArray());
         }
     }
     class 푸드_파이트_대회
@@ -39,6 +55,13 @@ namespace C_Sharp_Cording_Test_Practice
         static void Main(string[] args)
         {
             Solution _solution = new Solution();
+
+            int[] _food01 = { 1, 3, 4, 6 };
+            int[] _food02 = { 1, 7, 1, 2 };
+
+            Console.WriteLine(String.Join("", _solution.solution(_food01)));    //  1223330333221
+            Console.WriteLine(String.Join("", _solution.solution(_food02)));    //  111303111
         }
     }
+    */
 }
