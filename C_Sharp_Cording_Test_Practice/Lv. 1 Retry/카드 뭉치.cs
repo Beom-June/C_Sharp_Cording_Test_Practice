@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* 코니는 영어 단어가 적힌 카드 뭉치 두 개를 선물로 받았습니다. 
+/* Retry
+ * 코니는 영어 단어가 적힌 카드 뭉치 두 개를 선물로 받았습니다. 
  * 코니는 다음과 같은 규칙으로 카드에 적힌 단어들을 사용해 원하는 
  * 순서의 단어 배열을 만들 수 있는지 알고 싶습니다.
  * 
@@ -25,11 +26,32 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public string solution(string[] cards1, string[] cards2, string[] goal)
         {
-            string answer = "";
+            string answer = "Yes";
+            int _idx1 = 0;
+            int _idx2 = 0;
+
+            for (int i = 0; i < goal.Length; i++)
+            {
+                if(_idx1 < cards1.Length && goal[i] == cards1[_idx1])
+                {
+                    _idx1++;
+                    continue;
+                }
+                else if (_idx2 < cards2.Length && goal[i] == cards2[_idx2])
+                {
+                    _idx2++;
+                    continue;
+                }
+                else
+                {
+                    answer = "No";
+                }
+            }
             return answer;
         }
     }
@@ -49,4 +71,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_cards11, _cards02, _goal));       //  No
         }
     }
+    */
 }
