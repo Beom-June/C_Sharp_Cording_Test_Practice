@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /* 정수 start_num와 end_num가 주어질 때, 
  * start_num부터 end_num까지의 숫자를 차례로 담은 리스트를 
@@ -10,6 +7,7 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int[] solution(int start_num, int end_num)
@@ -34,4 +32,5 @@ namespace C_Sharp_Cording_Test_Practice
             }
         }
     }
+    */
 }
