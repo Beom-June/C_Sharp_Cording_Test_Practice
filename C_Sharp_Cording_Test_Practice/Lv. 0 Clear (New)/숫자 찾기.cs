@@ -7,6 +7,7 @@
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int num, int k)
@@ -35,4 +36,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(123456, 7));       //  -1
         }
     }
+    */
 }
