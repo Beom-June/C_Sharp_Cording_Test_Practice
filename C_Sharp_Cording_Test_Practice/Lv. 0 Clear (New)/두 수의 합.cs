@@ -1,16 +1,25 @@
 ﻿using System;
+using System.Numerics;
 
-/* 정수 num1과 num2가 주어질 때, num1과 num2의 합을 return하도록 soltuion 함수를 완성해주세요.
+/* Retry : 원래하던 Convert 방식은 숫자가 크면 불가....
+ * 0 이상의 두 정수가 문자열 a, b로 주어질 때, a + b의 값을 문자열로 
+ * return 하는 solution 함수를 작성해 주세요.
  */
 namespace C_Sharp_Cording_Test_Practice
 {
     /*
     public class Solution
     {
-        public int solution(int num1, int num2)
+        public string solution(string a, string b)
         {
-            int answer = 0;
-            answer = num1 + num2;
+            string answer = "";
+            long _sum = 0;
+            long _stringA = Convert.ToInt32(a);
+            long _stringB = Convert.ToInt32(b);
+
+            _sum = _stringA + _stringB;
+
+            answer = Convert.ToString(_sum);
             return answer;
         }
     }
@@ -20,8 +29,17 @@ namespace C_Sharp_Cording_Test_Practice
         {
             Solution _solution = new Solution();
 
-            Console.WriteLine(_solution.solution(2, 3));
-            Console.WriteLine(_solution.solution(100, 2));
+            string _a01 = "582";
+            string _a02 = "18446744073709551615";
+            string _a03 = "0";
+
+            string _b01 = "734";
+            string _b02 = "287346502836570928366";
+            string _b03 = "0";
+
+            Console.WriteLine(_solution.solution(_a01, _b01));
+            Console.WriteLine(_solution.solution(_a02, _b02));
+            Console.WriteLine(_solution.solution(_a03, _b03));
         }
     }
     */
