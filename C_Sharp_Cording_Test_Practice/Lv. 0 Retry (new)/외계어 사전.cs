@@ -9,6 +9,7 @@ using System.Linq;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(string[] spell, string[] dic)
@@ -49,4 +50,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_spell03, _dic03));        //  2
         }
     }
+    */
 }
