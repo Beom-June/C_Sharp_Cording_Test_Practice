@@ -12,6 +12,7 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int[,] dots)
@@ -44,4 +45,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_dots02));     //  0
         }
     }
+    */
 }
