@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /* S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 
  * 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 
@@ -17,11 +13,29 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int[] d, int budget)
         {
             int answer = 0;
+            int _sum = 0;
+
+            Array.Sort(d);
+
+            // 예산이 초과되지 않는 범위까지 지원
+            foreach (int i in d)
+            {
+                if (_sum + i <= budget)
+                {
+                    _sum += i;
+                    answer++;
+                }
+                else
+                {
+                    break;
+                }
+            }
             return answer;
         }
     }
@@ -38,4 +52,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_d02, 10));     //  4
         }
     }
+    */
 }
