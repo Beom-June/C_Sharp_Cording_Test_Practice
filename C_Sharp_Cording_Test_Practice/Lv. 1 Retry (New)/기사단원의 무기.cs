@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-/* 숫자나라 기사단의 각 기사에게는 1번부터 number까지 번호가 지정되어 있습니다. 
+/* Retry
+ * 숫자나라 기사단의 각 기사에게는 1번부터 number까지 번호가 지정되어 있습니다. 
  * 기사들은 무기점에서 무기를 구매하려고 합니다.
  * 
  * 각 기사는 자신의 기사 번호의 약수 개수에 해당하는 공격력을 가진 무기를 구매하려 합니다. 
@@ -23,12 +22,45 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(int number, int limit, int power)
         {
             int answer = 0;
+            List<int> _divNum = new List<int>();        //  약수의 갯수 담는 리스트
+            for (int i = 1; i <= number; i++)
+            {
+                int divisorCount = CountDivisors(i);
+
+                if (divisorCount > limit)
+                {
+                    _divNum.Add(power);
+                }
+                else
+                {
+                    _divNum.Add(divisorCount);
+                }
+            }
+
+            answer = _divNum.Sum();  // 리스트의 모든 값을 합산
             return answer;
+        }
+
+        private int CountDivisors(int n)
+        {
+            int count = 0;
+            for (int i = 1; i * i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    if (i * i == n)
+                        count++;
+                    else
+                        count += 2;
+                }
+            }
+            return count;
         }
     }
     class 기사단원의_무기
@@ -41,4 +73,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(10, 3, 2));      //  21
         }
     }
+    */
 }
