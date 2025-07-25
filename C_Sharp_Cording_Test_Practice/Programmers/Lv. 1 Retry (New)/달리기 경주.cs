@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-/* 얀에서는 매년 달리기 경주가 열립니다. 해설진들은 선수들이 자기 바로 앞의 선수를 추월할 때 추월한 선수의 이름을 부릅니다. 
+/* Retry
+ * 얀에서는 매년 달리기 경주가 열립니다. 해설진들은 선수들이 자기 바로 앞의 선수를 추월할 때 추월한 선수의 이름을 부릅니다. 
  * 예를 들어 1등부터 3등까지 "mumu", "soe", "poe" 선수들이 순서대로 달리고 있을 때, 
  * 해설진이 "soe"선수를 불렀다면 2등인 "soe" 선수가 1등인 "mumu" 선수를 추월했다는 것입니다. 
  * 즉 "soe" 선수가 1등, "mumu" 선수가 2등으로 바뀝니다.
@@ -11,6 +12,7 @@ using System.Collections.Generic;
  */
 namespace C_Sharp_Cording_Test_Practice.Programmers
 {
+    /*
     public class Solution
     {
         public string[] solution(string[] players, string[] callings)
@@ -28,7 +30,10 @@ namespace C_Sharp_Cording_Test_Practice.Programmers
 
             foreach (string calling in callings)
             {
+                // 호출된 선수의 현재 순위 인덱스 가져오기
                 int _idx = _playerRank[calling];
+
+                // 현재 순위가 0이 아니면, 즉 1등이 아니면
                 if (_idx > 0)
                 {
                     string _frontPlayer = players[_idx - 1];
@@ -42,9 +47,7 @@ namespace C_Sharp_Cording_Test_Practice.Programmers
                     _playerRank[_frontPlayer] = _idx;
                 }
             }
-
             return players; // 굳이 answer 배열 만들 필요 없음
-
         }
     }
     internal class 달리기_경주
@@ -60,4 +63,6 @@ namespace C_Sharp_Cording_Test_Practice.Programmers
             Console.WriteLine(string.Join(", ", result)); // Expected: "mumu, kai, mine, soe, poe"
         }
     }
+    */
 }
+
