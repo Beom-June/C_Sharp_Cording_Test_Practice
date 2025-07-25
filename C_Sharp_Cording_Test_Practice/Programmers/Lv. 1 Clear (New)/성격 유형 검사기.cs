@@ -58,13 +58,58 @@ using System.Threading.Tasks;
  * 선택한 선택지를 담은 1차원 정수 배열 choices가 매개변수로 주어집니다. 
  * 이때, 검사자의 성격 유형 검사 결과를 지표 번호 순서대로 return 하도록 solution 함수를 완성해주세요.
  */
-namespace C_Sharp_Cording_Test_Practice
+namespace C_Sharp_Cording_Test_Practice.Programmers
 {
+    /*
     public class Solution
     {
         public string solution(string[] survey, int[] choices)
         {
             string answer = "";
+
+            // 각 지표에 대한 점수 초기화
+            Dictionary<char, int> _scores = new Dictionary<char, int>
+            {
+                { 'R', 0 }, { 'T', 0 },
+                { 'C', 0 }, { 'F', 0 },
+                { 'J', 0 }, { 'M', 0 },
+                { 'A', 0 }, { 'N', 0 }
+            };
+
+            // survey 배열을 문자 배열로 변환
+            char[] _firstType = new char[survey.Length];
+            char[] _secondType = new char[survey.Length];
+            for (int i = 0; i < survey.Length; i++)
+            {
+                _firstType[i] = survey[i][0];
+                _secondType[i] = survey[i][1];
+            }
+
+            // survey와 choices 배열을 순회하며 점수 계산
+            for (int i = 0; i < survey.Length; i++)
+            {
+                int choice = choices[i];
+                // 선택지에 따라 점수 계산
+                if (choice < 4) // 비동의 쪽
+                {
+                    _scores[_firstType[i]] += 4 - choice; // 1~3에 대해 점수 증가
+                }
+                else if (choice > 4) // 동의 쪽
+                {
+                    _scores[_secondType[i]] += choice - 4; // 5~7에 대해 점수 증가
+                }
+                // choice == 4는 점수를 주지 않음
+                else if (choice == 4)
+                {
+                    _scores[_firstType[i]] += 0; // 아무 점수도 주지 않음
+                }
+            }
+
+            // 각 지표 쌍마다 점수가 더 높은 성격 유형을 결과 문자열에 추가
+            answer += _scores['R'] >= _scores['T'] ? 'R' : 'T';
+            answer += _scores['C'] >= _scores['F'] ? 'C' : 'F';
+            answer += _scores['J'] >= _scores['M'] ? 'J' : 'M';
+            answer += _scores['A'] >= _scores['N'] ? 'A' : 'N';
             return answer;
         }
     }
@@ -77,11 +122,12 @@ namespace C_Sharp_Cording_Test_Practice
             string[] _survey01 = { "AN", "CF", "MJ", "RT", "NA" };
             string[] _survey02 = { "TR", "RT", "TR" };
 
-            int[] _choices01 = { 5, 3, 2, 7, 5 };
-            int[] _choices02 = { 7, 1, 3 };
+            int[] _choices01 = { 5, 3, 2, 7, 5 };       // 약간 동의, 모르겠음, 비동의, 매우 동의, 약간 동의
+            int[] _choices02 = { 7, 1, 3 };             // 매우 동의, 매우 비동의, 비동의
 
             Console.WriteLine(_solution.solution(_survey01, _choices01)); // "TCMA"
             Console.WriteLine(_solution.solution(_survey02, _choices02)); // "RCJA"
         }
     }
+    */
 }
