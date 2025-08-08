@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* 고객의 약관 동의를 얻어서 수집된 1~n번으로 분류되는 개인정보 n개가 있습니다. 
+/* Retry
+ * 고객의 약관 동의를 얻어서 수집된 1~n번으로 분류되는 개인정보 n개가 있습니다. 
  * 약관 종류는 여러 가지 있으며 각 약관마다 개인정보 보관 유효기간이 정해져 있습니다. 
  * 당신은 각 개인정보가 어떤 약관으로 수집됐는지 알고 있습니다. 수집된 개인정보는 유효기간 전까지만 보관 가능하며, 
  * 유효기간이 지났다면 반드시 파기해야 합니다.
@@ -38,58 +39,54 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     internal class 개인정보_수집_유효기간
     {
         public class Solution
         {
-            //  today : 오늘 날짜를 의미
-            //  terms : 약관의 유효기간을 담은 1차원 문자열 배열
-            //  privacies : 수집된 개인정보의 정보를 담은 1차원 문자열 배열
             public int[] solution(string today, string[] terms, string[] privacies)
             {
-                int[] answer = new int[] { today.Length };
+                // 오늘 날짜를 총 일수로 환산
+                int todayDays = ConvertToDays(today);
 
-                //  오늘 날짜를 DateTime으로 변환
-                DateTime _today = DateTime.ParseExact(today, "yyyy.MM.dd", null);
-
-                //  약관 종류와 유효기간을 매핑하는 딕셔너리 생성
-                Dictionary<string, int> _termsDict = new Dictionary<string, int>();
-
-                foreach (string term in terms)
+                // 약관 딕셔너리 생성
+                Dictionary<string, int> termDict = new Dictionary<string, int>();
+                foreach (var term in terms)
                 {
-                    string[] _termParts = term.Split(' ');
-                    string _type = _termParts[0];
-                    int _months = int.Parse(_termParts[1]);
-                    _termsDict[_type] = _months;
+                    var parts = term.Split(' ');
+                    termDict[parts[0]] = int.Parse(parts[1]);
                 }
-                //  파기해야 할 개인정보 번호를 저장할 리스트
-                List<int> _toBeDeleted = new List<int>();
-                //  개인정보 정보 처리
+
+                List<int> toBeDeleted = new List<int>();
+
                 for (int i = 0; i < privacies.Length; i++)
                 {
-                    string[] _privacyParts = privacies[i].Split(' ');
-                    DateTime _collectionDate = DateTime.ParseExact(_privacyParts[0], "yyyy.MM.dd", null);
-                    string _termType = _privacyParts[1];
-                    //  해당 약관의 유효기간을 가져옴
-                    if (_termsDict.TryGetValue(_termType, out int _months))
+                    var parts = privacies[i].Split(' ');
+                    string dateStr = parts[0];
+                    string termType = parts[1];
+
+                    int startDays = ConvertToDays(dateStr);
+                    int validMonths = termDict[termType];
+                    int expiryDays = startDays + validMonths * 28 - 1;
+
+                    if (expiryDays < todayDays)
                     {
-                        //  유효기간이 지난 날짜 계산
-                        DateTime _expiryDate = _collectionDate.AddMonths(_months);
-                        //  오늘 날짜와 비교하여 파기해야 할 개인정보인지 확인
-                        if (_expiryDate < _today)
-                        {
-                            _toBeDeleted.Add(i + 1); //  번호는 1부터 시작하므로 i + 1
-                        }
+                        toBeDeleted.Add(i + 1); // 개인정보 번호는 1부터 시작
                     }
                 }
-                //  결과를 오름차순으로 정렬
-                _toBeDeleted.Sort();
-                //  리스트를 배열로 변환
-                answer = _toBeDeleted.ToArray();
-                //  결과 반환
-                if (answer.Length == 0)
-                    return new int[] { }; // 파기할 개인정보가 없을 경우 빈 배열 반환
-                return answer;
+
+                return toBeDeleted.ToArray();
+            }
+
+            // "yyyy.MM.dd" → 총 일수로 변환 (모든 달은 28일 기준)
+            private int ConvertToDays(string date)
+            {
+                var parts = date.Split('.');
+                int year = int.Parse(parts[0]);
+                int month = int.Parse(parts[1]);
+                int day = int.Parse(parts[2]);
+
+                return (year * 12 * 28) + (month * 28) + day;
             }
         }
         static void Main(string[] args)
@@ -109,4 +106,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(String.Join("," + _solution.solution(_today02, _terms02, _privacies02)));
         }
     }
+    */
 }
