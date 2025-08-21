@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-/* 신입사원 무지는 게시판 불량 이용자를 신고하고 처리 결과를 메일로 발송하는 시스템을 개발하려 합니다. 무지가 개발하려는 시스템은 다음과 같습니다.
+/* Retry
+ * 신입사원 무지는 게시판 불량 이용자를 신고하고 처리 결과를 메일로 발송하는 시스템을 개발하려 합니다. 무지가 개발하려는 시스템은 다음과 같습니다.
  * 
  * 각 유저는 한 번에 한 명의 유저를 신고할 수 있습니다.
  * 신고 횟수에 제한은 없습니다. 서로 다른 유저를 계속해서 신고할 수 있습니다.
@@ -40,26 +39,57 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     internal class 신고_결과_받기
     {
         public class Solution
         {
             public int[] solution(string[] id_list, string[] report, int k)
             {
-                int[] answer = new int[] { };
-                // 신고한 유저와 신고당한 유저를 매핑하기 위한 딕셔너리
-                Dictionary<string, HashSet<string>> _reportDic = new Dictionary<string, HashSet<string>>();
+                int[] answer = new int[id_list.Length];
 
-                // 신고당한 유저의 카운트를 저장하기 위한 딕셔너리
+                // 신고 관계/카운트 자료구조
+                Dictionary<string, HashSet<string>> _reportDic = new Dictionary<string, HashSet<string>>();
                 Dictionary<string, int> _reportCnt = new Dictionary<string, int>();
-                // 신고 정보를 처리
+
                 foreach (var id in id_list)
                 {
-                    _reportDic[id] = new HashSet<string>(); // 각 유저에 대해 신고한 유저를 저장할 Set 초기화
-                    _reportCnt[id] = 0; // 신고당한 횟수 초기화
+                    _reportDic[id] = new HashSet<string>();
+                    _reportCnt[id] = 0;
                 }
-                // 신고당한 유저가 k번 이상 신고당했는지 확인하고, 메일을 받을 유저의 카운트를 증가
 
+                // 1) 중복 제거된 신고만 반영: 관계 기록 + 신고당한 횟수 누적
+                foreach (var v in report.Distinct())
+                {
+                    string[] _reportInfo = v.Split(' ');
+                    string reporter = _reportInfo[0];
+                    string reported = _reportInfo[1];
+
+                    // HashSet이므로 같은 (reporter→reported) 추가 시 자동 중복 방지
+                    if (_reportDic[reporter].Add(reported))
+                    {
+                        _reportCnt[reported]++;
+                    }
+                }
+
+                // 2) 정지 대상 확정 (신고 k회 이상)
+                var _banned = new HashSet<string>(
+                    _reportCnt.Where(x => x.Value >= k).Select(x => x.Key)
+                );
+
+                // 3) 결과 메일 카운트 (id_list 순서대로)
+                for (int i = 0; i < id_list.Length; i++)
+                {
+                    string _id = id_list[i];
+                    int _cnt = 0;
+                    foreach (var target in _reportDic[_id])
+                    {
+                        if (_banned.Contains(target))
+                            _cnt++;
+                        Console.WriteLine(target);
+                    }
+                    answer[i] = _cnt;
+                }
                 return answer;
             }
         }
@@ -79,4 +109,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(string.Join(", ", _result02)); // 결과 출력 [0, 0]
         }
     }
+    */
 }
