@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* 선물을 직접 전하기 힘들 때 카카오톡 선물하기 기능을 이용해 축하 선물을 보낼 수 있습니다. 
+/* Retry
+ * 선물을 직접 전하기 힘들 때 카카오톡 선물하기 기능을 이용해 축하 선물을 보낼 수 있습니다. 
  * 당신의 친구들이 이번 달까지 선물을 주고받은 기록을 바탕으로 다음 달에 누가 선물을 많이 받을지 예측하려고 합니다.
  * 
  * 두 사람이 선물을 주고받은 기록이 있다면, 이번 달까지 두 사람 사이에 더 많은 선물을 준 사람이 다음 달에 선물을 하나 받습니다.
@@ -21,6 +22,7 @@ using System.Threading.Tasks;
  */
 namespace C_Sharp_Cording_Test_Practice
 {
+    /*
     public class Solution
     {
         public int solution(string[] friends, string[] gifts)
@@ -34,21 +36,62 @@ namespace C_Sharp_Cording_Test_Practice
             {
                 _nextMonthGift.Add(friend, answer);
             }
-
-            foreach (string gift in gifts)
+            // 0️. 각 친구별 선물 지수 계산 (준 선물 개수 - 받은 선물 개수)
+            foreach (var _gift in gifts)
             {
-                // "A B" 형태의 문자열을 분리하여 A가 B에게 선물을 준 것으로 기록
-                var _parts = gift.Split(' ');
+                var _parts = _gift.Split(' ');
                 string _giver = _parts[0];
                 string _receiver = _parts[1];
 
-                // 선물 기록 갱신
-                var _key = (_giver, _receiver);
-                if (_giftHistory.ContainsKey(_key))
-                    _giftHistory[_key]++;
-                else
-                    _giftHistory[_key] = 1;
+                // 준 사람 +1
+                if (_giftPoint.ContainsKey(_giver)) _giftPoint[_giver]++; else _giftPoint[_giver] = 1;
+                // 받은 사람 -1
+                if (_giftPoint.ContainsKey(_receiver)) _giftPoint[_receiver]--; else _giftPoint[_receiver] = -1;
+                // gift history 갱신 (A -> B)
+                var _pair = (_giver, _receiver);
+                if (_giftHistory.ContainsKey(_pair)) _giftHistory[_pair]++; else _giftHistory[_pair] = 1;
             }
+
+            //  비교
+            // 1️. 모든 친구 쌍 (A, B)에 대해 반복 (A != B)
+            for (int i = 0; i < friends.Length; i++)
+            {
+                for (int j = i + 1; j < friends.Length; j++)
+                {
+                    string _friendA = friends[i];
+                    string _friendB = friends[j];
+
+                    // 2️. A→B, B→A 각각 준 선물 횟수 조회 (없으면 0)
+                    int _aToB = _giftHistory.ContainsKey((_friendA, _friendB)) ? _giftHistory[(_friendA, _friendB)] : 0;
+                    int _bToA = _giftHistory.ContainsKey((_friendB, _friendA)) ? _giftHistory[(_friendB, _friendA)] : 0;
+
+                    // 3️. A와 B가 서로 선물 주고받은 수 비교
+                    if (_aToB > _bToA)
+                    {
+                        // A가 B에게 더 많이 줬다면 다음 달에 A가 선물 하나 받음
+                        _nextMonthGift[_friendA]++;
+                    }
+                    else if (_bToA > _aToB)
+                    {
+                        // 반대의 경우 B가 하나 받음
+                        _nextMonthGift[_friendB]++;
+                    }
+                    else
+                    {
+                        // 4️. 선물 주고받은 횟수가 같다면 선물 지수 비교
+                        int _aGiftPoint = (_giftPoint.ContainsKey(_friendA) ? _giftPoint[_friendA] : 0);
+                        int _bGiftPoint = (_giftPoint.ContainsKey(_friendB) ? _giftPoint[_friendB] : 0);
+
+                        if (_aGiftPoint > _bGiftPoint)
+                            _nextMonthGift[_friendA]++;
+                        else if (_bGiftPoint > _aGiftPoint)
+                            _nextMonthGift[_friendB]++;
+                        // 같다면 아무도 받지 않음
+                    }
+                }
+            }
+            // 5️. 가장 많이 선물 받은 사람의 수 구하기
+            answer = _nextMonthGift.Values.Max();
 
             return answer;
         }
@@ -72,4 +115,5 @@ namespace C_Sharp_Cording_Test_Practice
             Console.WriteLine(_solution.solution(_friends03, _gifts03));     //0
         }
     }
+    */
 }
